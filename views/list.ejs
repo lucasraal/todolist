@@ -4,25 +4,33 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/styles.css" />
     <title>To Do List</title>
   </head>
   <body>
-    <h1><%= kindOfDay %></h1>
+    <div class="box" id="heading">
+      <h1><%= kindOfDay %></h1>
+    </div>
 
-    <% if (items.length === 0) { %>
-    <h3>Your list is empty.</h3>
-    <% } else { %>
-    <ul>
-      <% for ( let i = 0; i < items.length; i++) { %>
-      <li><%= items[i] %></li>
-      <% } %>
-    </ul>
-    <% } %>
+    <div class="box">
+      <% if (items.length === 0) { %>
+      <p>Your list is empty.</p>
+      <% } else { %> <% for ( let i = 0; i < items.length; i++) { %>
+      <div class="item">
+        <input type="checkbox" name="" id="" />
+        <p><%= items[i] %></p>
+      </div>
+      <% } } %>
 
-    <h4>Add new item to the list:</h4>
-    <form action="/" method="post">
-      <input type="text" name="newListItem" />
-      <button type="submit">Add</button>
-    </form>
+      <form class="item" action="/" method="post">
+        <input
+          type="text"
+          name="newListItem"
+          placeholder="New Item"
+          autocomplete="off"
+        />
+        <button type="submit">+</button>
+      </form>
+    </div>
   </body>
 </html>

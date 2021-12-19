@@ -6,6 +6,7 @@ const port = 3000;
 
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(express.static("public"));
 
 let items = [];
 
@@ -15,7 +16,7 @@ app.get("/", (req, res) => {
     weekday: "long",
     day: "numeric",
     month: "long",
-    year: "numeric",
+    // year: "numeric",
   };
   let day = today.toLocaleDateString("en-US", options);
 
